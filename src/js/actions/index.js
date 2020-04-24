@@ -1,4 +1,3 @@
 export const addArticle = (payload) => {
-    return { type: "ADD_ARTICLE", payload }
-  };
-  
+    return { type: "ADD_ARTICLE", payload };
+};
