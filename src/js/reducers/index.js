@@ -1,21 +1,19 @@
-import { ADD_ARTICLE } from "../constants/action-types";
+import { ADD_ARTICLE, DATA_LOADED } from "../constants/action-types";
 
 const initialState = {
     articles: [],
+    remoteArticles: [],
 };
 
 const rootReducer = (state = initialState, action) => {
-    // if (action.type === ADD_ARTICLE) {
-    //     return Object.assign({}, state, {
-    //         articles: state.articles.concat(action.payload),
-    //     });
-    // }
-    // return state;
-
     switch (action.type) {
         case ADD_ARTICLE:
             const article = action.payload;
             return { articles: [...state.articles, article] };
+        case DATA_LOADED:
+            return Object.assign({}, state, {
+                remoteArticles: state.remoteArticles.concat(action.payload),
+            });
         default:
             return state;
     }

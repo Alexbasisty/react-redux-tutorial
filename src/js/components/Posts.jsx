@@ -8,8 +8,20 @@ export class Post extends Component {
     }
 
     render() {
-        return null;
+        return (
+            <ul>
+                {this.props.articles.map((el) => (
+                    <li key={el.id}>{el.title}</li>
+                ))}
+            </ul>
+        );
     }
 }
 
-export default connect(null, { getData })(Post);
+const mapStateToProps = (state) => {
+    return {
+        articles: state.remoteArticles,
+    };
+};
+
+export default connect(mapStateToProps, { getData })(Post);
