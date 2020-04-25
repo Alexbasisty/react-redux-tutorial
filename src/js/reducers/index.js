@@ -9,11 +9,13 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ARTICLE:
             const article = action.payload;
-            return { articles: [...state.articles, article] };
+            return { ...state, articles: [...state.articles, article] };
         case DATA_LOADED:
-            return Object.assign({}, state, {
-                remoteArticles: state.remoteArticles.concat(action.payload),
-            });
+            const remoteArticles = action.payload;
+            return {
+                ...state,
+                remoteArticles: [...remoteArticles],
+            };
         default:
             return state;
     }
