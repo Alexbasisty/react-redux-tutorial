@@ -14,8 +14,8 @@ const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_ARTICLE:
-            const articles = action.payload;
-            return { ...state, articles };
+            const article = action.payload;
+            return { articles: [...state.articles, article] };
         default:
             return state;
     }
