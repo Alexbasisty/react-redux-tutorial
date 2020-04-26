@@ -20,7 +20,7 @@ export class Post extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        articles: state.remoteArticles,
+        articles: state.remoteArticles.slice(0, 10),
     };
 };
 
